@@ -45,3 +45,11 @@ body.admin-mode textarea{resize:vertical;min-height:90px}
 .admin-status{position:sticky;bottom:12px;text-align:center;color:#245b43;font-weight:700;font-size:13px}.admin-footer{text-align:center;color:#a1adbd;font-size:11px;padding:18px}
 @media(min-width:700px){.admin-form{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}.admin-form .settings-card{grid-column:span 2}.admin-form .save-btn{grid-column:span 2}.admin-header{margin-bottom:30px}}
 @media(max-width:480px){body.admin-mode .wrap{padding:17px 13px 36px}.admin-brand h1{font-size:21px}.login-card,.settings-card{padding:17px}.welcome-card{padding:20px}.welcome-card h2{font-size:20px}}
+
+/* Fix: allow full-page scrolling on the admin dashboard */
+html.admin-mode,html.admin-mode body{height:auto!important;min-height:100%!important;overflow-x:hidden!important;overflow-y:auto!important;overscroll-behavior-y:auto!important}
+html.admin-mode body{position:static!important}
+html.admin-mode body .wrap{height:auto!important;min-height:100svh;overflow:visible!important;display:block!important}
+html.admin-mode body .admin-shell{height:auto!important;min-height:0;overflow:visible!important}
+html.admin-mode body #dashboard{height:auto!important;overflow:visible!important}
+html.admin-mode body .admin-form{overflow:visible!important}
