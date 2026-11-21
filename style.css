@@ -8,3 +8,6 @@
 /* Center the scratch card in the mobile viewport */
 .wrap{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:center;align-items:center;padding-top:16px;padding-bottom:16px}
 .scratch-panel{width:100%}
+
+/* Prevent page movement during scratch gestures */
+.scratch,.scratch canvas{touch-action:none;overscroll-behavior:contain}
