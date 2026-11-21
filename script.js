@@ -20,4 +20,4 @@ $('settingsForm').onsubmit=async e=>{e.preventDefault();const b=e.submitter;b.di
 async function loadEntries(){const {data,error}=await sb.from('scratch_entries').select('*').order('created_at',{ascending:false}).limit(100);if(error)throw error;$('entries').innerHTML=(data||[]).map(r=>'<div class="entry"><b>'+esc(r.customer_name||'নাম নেই')+'</b><br>মোবাইল: '+esc(r.phone||'-')+'<br>ইমেইল: '+esc(r.email||'-')+'<br>ফলাফল: '+esc(r.result_label||'-')+'<br>সময়: '+esc(new Date(r.created_at).toLocaleString())+'<br>স্ট্যাটাস: '+esc(r.payment_status||'-')+'<br>নোট: '+esc(r.admin_note||'-')+'</div>').join('')||'কোনো এন্ট্রি নেই'}
 function esc(v){return String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 $('logout').onclick=async()=>{await sb.auth.signOut();location.reload()};(async()=>{const {data:{session}}=await sb.auth.getSession();if(session&&new URLSearchParams(location.search).get('admin')==='1')loadAdmin().catch(e=>$('adminStatus').textContent=e.message)})();
-window.addEventListener('load', initializeScratch);
+// Start loading the scratch result immediately; do not wait for window load.\ninitializeScratch();
