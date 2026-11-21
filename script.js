@@ -3,7 +3,7 @@ const SUPABASE_KEY = SUPABASE_PUBLISHABLE_KEY;
 const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 const EDGE = SUPABASE_URL + '/functions/v1/scratch-result';
 const $ = id => document.getElementById(id);
-const SUPABASE_URL='https://mzcalxbkbtvawjumwtnw.supabase.co',SUPABASE_KEY='sb_publishable_ljdqk9cHXm-0m_lQXjltRQ_6IcscYUS',sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY),EDGE=SUPABASE_URL+'/functions/v1/scratch-result', $=id=>document.getElementById(id);
+
 let scratchId=null,revealed=false;
 async function request(body){const {data:{session}}=await sb.auth.getSession();const res=await fetch(EDGE,{method:'POST',headers:{'Content-Type':'application/json','apikey':SUPABASE_KEY,'Authorization':'Bearer '+(session?.access_token||SUPABASE_KEY)},body:JSON.stringify(body)});const data=await res.json().catch(()=>({}));if(!res.ok)throw Error(data.error||data.message||'অনুরোধ সম্পন্ন হয়নি');return data}
 function celebrate(){const emojis=['🥳','💵','🪙','💰','💳','💸'];for(let i=0;i<200;i++){const el=document.createElement('span');el.className='rain-emoji';el.textContent=emojis[Math.floor(Math.random()*emojis.length)];el.style.left=(Math.random()*100)+'vw';el.style.fontSize=(20+Math.random()*22)+'px';el.style.animationDelay=(Math.random()*180)+'ms';document.body.appendChild(el);setTimeout(()=>el.remove(),2250)}}
