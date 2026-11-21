@@ -4,17 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Scratch Win</title>
-<meta name="theme-color" content="#102139">
+<meta name="theme-color" content="#ffffff">
 <link rel="manifest" href="/manifest.json">
 <link rel="stylesheet" href="/style.css">
 </head>
 <body>
 <main class="wrap">
-  <header class="head">
-    <div class="logo">Scratch Card</div>
-    <p class="muted">Congratulations!</p>
-  </header>
-
   <section class="panel scratch-panel">
     <h2>আপনার ভাগ্য পরীক্ষা করুন</h2>
     <div class="scratch" id="scratch">
@@ -23,7 +18,6 @@
     </div>
     <p class="muted hint" id="hint">Scratch শুরু করে কার্ডের উপর আঙুল দিয়ে ঘষুন।</p>
     <button id="start">Scratch শুরু করুন</button>
-
     <form id="details" class="hidden">
       <label>আপনার নাম *</label><input id="name" required maxlength="80">
       <label>মোবাইল নম্বর *</label><input id="phone" required inputmode="tel" maxlength="15">
@@ -33,37 +27,17 @@
     </form>
     <div id="status" class="status"></div>
   </section>
-
   <section id="admin" class="panel hidden">
     <h2>Admin Dashboard</h2>
-    <div id="login">
-      <label>Email</label><input id="adminEmail" type="email">
-      <label>Password</label><input id="adminPassword" type="password">
-      <button id="loginBtn">Login</button>
-    </div>
+    <div id="login"><label>Email</label><input id="adminEmail" type="email"><label>Password</label><input id="adminPassword" type="password"><button id="loginBtn">Login</button></div>
     <div id="dashboard" class="hidden">
-      <button id="logout" class="secondary">Logout</button>
-      <h3>ওয়েবসাইট সেটিংস</h3>
+      <button id="logout" class="secondary">Logout</button><h3>ওয়েবসাইট সেটিংস</h3>
       <form id="settingsForm" class="admin-form">
-        <label>Site title</label><input id="setTitle" maxlength="80">
-        <label>Card color</label><input id="setColor" type="color">
-        <label>Scratch message</label><input id="setMessage" maxlength="120">
-        <label>Prize options (JSON: label ও weight)</label><textarea id="setPrizes" rows="5"></textarea>
-        <label><input id="setCelebrate" type="checkbox" style="width:auto"> Celebration চালু</label>
-        <label>Celebration duration (ms)</label><input id="setDuration" type="number" min="0" max="5000">
-        <label>UPI ID (ঐচ্ছিক)</label><input id="setUpi">
-        <label>UPI display name</label><input id="setUpiName">
-        <label>Payment instructions</label><textarea id="setPayment" rows="3"></textarea>
-        <button type="submit">সেটিংস সেভ করুন</button>
-      </form>
-      <h3>সর্বশেষ কাস্টমার এন্ট্রি</h3><div id="entries"></div>
-    </div>
-    <div id="adminStatus" class="status"></div>
+        <label>Site title</label><input id="setTitle" maxlength="80"><label>Card color</label><input id="setColor" type="color"><label>Scratch message</label><input id="setMessage" maxlength="120"><label>Prize options (JSON: label ও weight)</label><textarea id="setPrizes" rows="5"></textarea><label><input id="setCelebrate" type="checkbox" style="width:auto"> Celebration চালু</label><label>Celebration duration (ms)</label><input id="setDuration" type="number" min="0" max="5000"><label>UPI ID (ঐচ্ছিক)</label><input id="setUpi"><label>UPI display name</label><input id="setUpiName"><label>Payment instructions</label><textarea id="setPayment" rows="3"></textarea><button type="submit">সেটিংস সেভ করুন</button>
+      </form><h3>সর্বশেষ কাস্টমার এন্ট্রি</h3><div id="entries"></div>
+    </div><div id="adminStatus" class="status"></div>
   </section>
 </main>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="/config.js"></script>
-<script src="/script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="/config.js"></script><script src="/script.js"></script>
 <script>if ("serviceWorker" in navigator) { window.addEventListener("load", () => navigator.serviceWorker.register("/service-worker.js").catch(console.error)); }</script>
-</body>
-</html>
+</body></html>
