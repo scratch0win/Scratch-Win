@@ -128,4 +128,4 @@ body:not(.admin-mode) #status{grid-row:4!important;justify-self:center!important
 body:not(.admin-mode) #bottomBanner{grid-row:5!important;align-self:end!important}
 
 /* Move the scratch card slightly upward while keeping it centered */
-body:not(.admin-mode) #scratch{transform:translateY(-24px)!important}
+body:not(.admin-mode) #scratch{transform:translateY(-32px)!important}
