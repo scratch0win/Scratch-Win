@@ -113,3 +113,8 @@ body:not(.admin-mode) #bottomBanner{order:4;margin-top:0!important}
  body:not(.admin-mode) .scratch{width:86%!important;aspect-ratio:14/9!important;margin:16px auto 14px!important;border-radius:23px!important}
  body:not(.admin-mode) .brand-logo{margin:8px auto!important}
 }
+
+/* Whole-site background image selected from the admin Gallery */
+html:not(.admin-mode){background-color:#fff!important;background-image:var(--site-background-image,none)!important;background-size:cover!important;background-position:center center!important;background-repeat:no-repeat!important;background-attachment:fixed!important}
+body:not(.admin-mode){background:transparent!important}
+body:not(.admin-mode) .scratch-panel{background:transparent!important}
