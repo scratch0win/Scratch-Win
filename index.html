@@ -6,11 +6,12 @@
 <title>Scratch Win</title>
 <meta name="theme-color" content="#ffffff">
 <link rel="manifest" href="/manifest.json">
-<link rel="stylesheet" href="/style.css?v=12">
+<link rel="stylesheet" href="/style.css?v=13">
 </head>
 <body>
 <main class="wrap">
   <section class="scratch-panel">
+    <div id="brandLogo" class="brand-logo hidden"><img id="brandLogoImage" alt="Website logo"></div>
     <div id="topBanner" class="banner-slot hidden"><img id="topBannerImage" alt="উপরের ব্যানার"></div>
     <div class="scratch" id="scratch" aria-label="Scratch card">
       <div class="prize" id="prize"></div>
@@ -40,9 +41,10 @@
           <label for="setMessage">Scratch message</label><input id="setMessage" maxlength="120" placeholder="আপনার বার্তা লিখুন">
         </section>
         <section class="settings-card">
-          <div class="section-heading"><span class="section-icon">🖼️</span><div><h2>Banner Management</h2><p>মোবাইলের Gallery থেকে উপরে ও নিচে ব্যানার দিন</p></div></div>
-          <div class="upload-card"><label for="bannerTopFile">উপরের Banner</label><input id="bannerTopFile" type="file" accept="image/*"><button id="removeTopBanner" type="button" class="remove-btn">উপরের Banner সরান</button><div id="topBannerPreview" class="admin-banner-preview"></div></div>
-          <div class="upload-card"><label for="bannerBottomFile">নিচের Banner</label><input id="bannerBottomFile" type="file" accept="image/*"><button id="removeBottomBanner" type="button" class="remove-btn">নিচের Banner সরান</button><div id="bottomBannerPreview" class="admin-banner-preview"></div></div>
+          <div class="section-heading"><span class="section-icon">🖼️</span><div><h2>Logo & Poster</h2><p>Gallery থেকে নিজের Logo ও Poster আপলোড করুন</p></div></div>
+          <div class="upload-card"><label for="logoFile">Website Logo</label><input id="logoFile" type="file" accept="image/*"><button id="removeLogo" type="button" class="remove-btn">Logo সরান</button><div id="logoPreview" class="admin-banner-preview"></div></div>
+          <div class="upload-card"><label for="bannerTopFile">উপরের Poster</label><input id="bannerTopFile" type="file" accept="image/*"><button id="removeTopBanner" type="button" class="remove-btn">উপরের Banner সরান</button><div id="topBannerPreview" class="admin-banner-preview"></div></div>
+          <div class="upload-card"><label for="bannerBottomFile">নিচের Poster</label><input id="bannerBottomFile" type="file" accept="image/*"><button id="removeBottomBanner" type="button" class="remove-btn">নিচের Banner সরান</button><div id="bottomBannerPreview" class="admin-banner-preview"></div></div>
           <p class="helper-text">JPG, PNG, WEBP বা GIF · সর্বোচ্চ 5 MB</p>
         </section>
         <section class="settings-card">
@@ -65,6 +67,6 @@
     <footer class="admin-footer">Scratch Win · Admin Panel</footer>
   </section>
 </main>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="/config.js"></script><script src="/script.js?v=16"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="/config.js"></script><script src="/script.js?v=17"></script>
 <script>if ("serviceWorker" in navigator) { window.addEventListener("load", () => navigator.serviceWorker.register("/service-worker.js?v=6").catch(console.error)); }</script>
 </body></html>
