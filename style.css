@@ -16,3 +16,5 @@
 html,body{height:100%;overflow:hidden;overscroll-behavior:none}
 
 /* Cloudflare Pages deployment trigger */
+
+.banner-slot{width:100%;max-width:540px;margin:0 auto 14px;text-align:center;overflow:hidden;border-radius:12px}.banner-slot img{display:block;width:100%;height:auto;max-height:180px;object-fit:contain;border-radius:12px}.scratch-panel .banner-slot:last-child{margin:14px auto 0}.admin-form input[type=file]{padding:10px;background:#fafafa}
