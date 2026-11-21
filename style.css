@@ -82,3 +82,18 @@ body:not(.admin-mode) .brand-logo{margin-bottom:4px}
  body:not(.admin-mode) .banner-slot{width:96%;max-height:165px;border-radius:6px}
  body:not(.admin-mode) .banner-slot img{max-height:165px;border-radius:6px}
 }
+
+/* Automatic banner sizing: preserve each uploaded image's original ratio */
+body:not(.admin-mode) .wrap{display:block!important;width:100%;max-width:640px;margin:0 auto;padding:18px 12px 28px}
+body:not(.admin-mode) .scratch-panel{display:flex;flex-direction:column;align-items:center;gap:14px;width:100%;max-width:600px;margin:0 auto}
+body:not(.admin-mode) .banner-slot{display:block;width:100%;max-width:600px;height:auto!important;max-height:none!important;aspect-ratio:auto!important;margin:0 auto!important;padding:0!important;overflow:hidden;border-radius:12px;background:transparent;line-height:0}
+body:not(.admin-mode) .banner-slot img{display:block;width:100%!important;height:auto!important;max-height:none!important;object-fit:contain!important;object-position:center;border:0;border-radius:12px}
+body:not(.admin-mode) .scratch{width:86%;max-width:470px;height:clamp(215px,55vw,300px);margin:0 auto;border-radius:20px}
+body:not(.admin-mode) .status{width:100%;max-width:560px;margin:0 auto;text-align:center}
+@media(max-width:480px){
+ body:not(.admin-mode) .wrap{padding:14px 10px 22px}
+ body:not(.admin-mode) .scratch-panel{gap:12px}
+ body:not(.admin-mode) .banner-slot{width:100%;border-radius:9px}
+ body:not(.admin-mode) .banner-slot img{border-radius:9px}
+ body:not(.admin-mode) .scratch{width:86%;height:clamp(215px,58vw,275px);border-radius:17px}
+}
