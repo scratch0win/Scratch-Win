@@ -6,19 +6,16 @@
 <title>Scratch Win</title>
 <meta name="theme-color" content="#ffffff">
 <link rel="manifest" href="/manifest.json">
-<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/style.css?v=3">
 </head>
 <body>
 <main class="wrap">
-  <section class="panel scratch-panel">
-    <h2>আপনার ভাগ্য পরীক্ষা করুন</h2>
-    <div class="scratch" id="scratch">
-      <div class="prize" id="prize">শুরু করতে নিচের বোতাম চাপুন</div>
+  <section class="scratch-panel">
+    <div class="scratch" id="scratch" aria-label="Scratch card">
+      <div class="prize" id="prize">লোড হচ্ছে...</div>
       <canvas id="foil" class="hidden"></canvas>
     </div>
-    <p class="muted hint" id="hint">Scratch শুরু করে কার্ডের উপর আঙুল দিয়ে ঘষুন।</p>
-    <button id="start">Scratch শুরু করুন</button>
-    <form id="details" class="hidden">
+    <form id="details" class="details hidden">
       <label>আপনার নাম *</label><input id="name" required maxlength="80">
       <label>মোবাইল নম্বর *</label><input id="phone" required inputmode="tel" maxlength="15">
       <label>ইমেইল (ঐচ্ছিক)</label><input id="email" type="email">
@@ -39,5 +36,5 @@
   </section>
 </main>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="/config.js"></script><script src="/script.js"></script>
-<script>if ("serviceWorker" in navigator) { window.addEventListener("load", () => navigator.serviceWorker.register("/service-worker.js").catch(console.error)); }</script>
+<script>if ("serviceWorker" in navigator) { window.addEventListener("load", () => navigator.serviceWorker.register("/service-worker.js?v=3").catch(console.error)); }</script>
 </body></html>
