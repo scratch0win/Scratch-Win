@@ -22,48 +22,48 @@
   </section>
   <section id="admin" class="admin-shell hidden">
     <header class="admin-header">
-      <div class="admin-brand"><div class="admin-mark">S</div><div><span class="eyebrow">SCRATCH WIN</span><h1>Admin Dashboard</h1><p>আপনার ওয়েবসাইট পরিচালনা করুন</p></div></div>
+      <div class="admin-brand"><div class="admin-mark">S</div><div><span class="eyebrow">SCRATCH WIN</span><h1>Admin Dashboard</h1><p>Manage your website</p></div></div>
       <button id="logout" class="logout-btn secondary hidden">Logout</button>
     </header>
     <div id="login" class="login-card">
-      <div class="section-heading"><span class="section-icon">🔐</span><div><h2>Admin Login</h2><p>ড্যাশবোর্ডে প্রবেশ করতে লগইন করুন</p></div></div>
+      <div class="section-heading"><span class="section-icon">🔐</span><div><h2>Admin Login</h2><p>Log in to access the dashboard</p></div></div>
       <label for="adminEmail">Email address</label><input id="adminEmail" type="email" placeholder="admin@example.com" autocomplete="username">
-      <label for="adminPassword">Password</label><input id="adminPassword" type="password" placeholder="আপনার পাসওয়ার্ড" autocomplete="current-password">
+      <label for="adminPassword">Password</label><input id="adminPassword" type="password" placeholder="Your password" autocomplete="current-password">
       <button id="loginBtn" class="primary-btn">Login to Dashboard</button>
     </div>
     <div id="dashboard" class="hidden">
-      <div class="welcome-card"><div><span class="eyebrow">CONTROL CENTER</span><h2>স্বাগতম, Admin 👋</h2><p>এখান থেকে আপনার সাইটের সব সেটিংস নিয়ন্ত্রণ করুন।</p></div><div class="welcome-icon">⚙️</div></div>
+      <div class="welcome-card"><div><span class="eyebrow">CONTROL CENTER</span><h2>Welcome, Admin 👋</h2><p>Manage all your website settings here.</p></div><div class="welcome-icon">⚙️</div></div>
       <form id="settingsForm" class="admin-form">
         <section class="settings-card">
-          <div class="section-heading"><span class="section-icon">🌐</span><div><h2>ওয়েবসাইট সেটিংস</h2><p>সাইটের নাম ও Scratch Card-এর চেহারা</p></div></div>
+          <div class="section-heading"><span class="section-icon">🌐</span><div><h2>Website Settings</h2><p>Site name and Scratch Card appearance</p></div></div>
           <label for="setTitle">Site title</label><input id="setTitle" maxlength="80" placeholder="Scratch Card">
-          <label for="setColor">Card color</label><div class="color-row"><input id="setColor" type="color"><span>Scratch Card-এর ব্যাকগ্রাউন্ড রং বেছে নিন</span></div>
-          <label for="setMessage">Scratch message</label><input id="setMessage" maxlength="120" placeholder="আপনার বার্তা লিখুন">
+          <label for="setColor">Card color</label><div class="color-row"><input id="setColor" type="color"><span>Choose the Scratch Card background color</span></div>
+          <label for="setMessage">Scratch message</label><input id="setMessage" maxlength="120" placeholder="Enter your message">
         </section>
         <section class="settings-card">
-          <div class="section-heading"><span class="section-icon">🖼️</span><div><h2>Logo & Poster</h2><p>Gallery থেকে নিজের Logo ও Poster আপলোড করুন</p></div></div>
+          <div class="section-heading"><span class="section-icon">🖼️</span><div><h2>Logo & Poster</h2><p>Upload your own logo and posters from the gallery</p></div></div>
           <div class="upload-card"><label for="logoFile">Website Logo</label><input id="logoFile" type="file" accept="image/*"><button id="removeLogo" type="button" class="remove-btn">Logo সরান</button><div id="logoPreview" class="admin-banner-preview"></div></div>
-          <div class="upload-card"><label for="siteBackgroundFile">পুরো Website Background</label><input id="siteBackgroundFile" type="file" accept="image/*"><button id="removeSiteBackground" type="button" class="remove-btn">Website Background সরান</button><div id="siteBackgroundPreview" class="admin-banner-preview"></div></div>
-          <div class="upload-card"><label for="scratchBackgroundFile">Scratch Card-এর ভিতরের Background</label><input id="scratchBackgroundFile" type="file" accept="image/*"><button id="removeScratchBackground" type="button" class="remove-btn">Background সরান</button><div id="scratchBackgroundPreview" class="admin-banner-preview"></div></div>
-          <div class="upload-card"><label for="bannerTopFile">উপরের Poster</label><input id="bannerTopFile" type="file" accept="image/*"><button id="removeTopBanner" type="button" class="remove-btn">উপরের Banner সরান</button><div id="topBannerPreview" class="admin-banner-preview"></div></div>
-          <div class="upload-card"><label for="bannerBottomFile">নিচের Poster</label><input id="bannerBottomFile" type="file" accept="image/*"><button id="removeBottomBanner" type="button" class="remove-btn">নিচের Banner সরান</button><div id="bottomBannerPreview" class="admin-banner-preview"></div></div>
-          <p class="helper-text">JPG, PNG, WEBP বা GIF · সর্বোচ্চ 5 MB</p>
+          <div class="upload-card"><label for="siteBackgroundFile">Website Background</label><input id="siteBackgroundFile" type="file" accept="image/*"><button id="removeSiteBackground" type="button" class="remove-btn">Remove Website Background</button><div id="siteBackgroundPreview" class="admin-banner-preview"></div></div>
+          <div class="upload-card"><label for="scratchBackgroundFile">Scratch Card Background</label><input id="scratchBackgroundFile" type="file" accept="image/*"><button id="removeScratchBackground" type="button" class="remove-btn">Remove Background</button><div id="scratchBackgroundPreview" class="admin-banner-preview"></div></div>
+          <div class="upload-card"><label for="bannerTopFile">Top Poster</label><input id="bannerTopFile" type="file" accept="image/*"><button id="removeTopBanner" type="button" class="remove-btn">Remove Top Banner</button><div id="topBannerPreview" class="admin-banner-preview"></div></div>
+          <div class="upload-card"><label for="bannerBottomFile">Bottom Poster</label><input id="bannerBottomFile" type="file" accept="image/*"><button id="removeBottomBanner" type="button" class="remove-btn">Remove Bottom Banner</button><div id="bottomBannerPreview" class="admin-banner-preview"></div></div>
+          <p class="helper-text">JPG, PNG, WEBP or GIF · Maximum 5 MB</p>
         </section>
         <section class="settings-card">
-          <div class="section-heading"><span class="section-icon">🎁</span><div><h2>Prize & Celebration</h2><p>পুরস্কার ও Scratch শেষের অ্যানিমেশন</p></div></div>
-          <label for="setPrizes">Winning Number / Prize options (JSON)</label><textarea id="setPrizes" rows="5" spellcheck="false"></textarea><p class="helper-text">Scratch করার পর এখানে দেওয়া নম্বর দেখাবে। ৪ সংখ্যার নম্বরের উদাহরণ: [{"label":"4821","weight":100}]। একাধিক নম্বর দিলে weight অনুযায়ী যেকোনো একটি দেখাবে। নম্বর বদলাতে এই JSON-এর label পরিবর্তন করে সেভ করুন।</p>
-          <label class="check-row"><input id="setCelebrate" type="checkbox"> Celebration চালু</label>
+          <div class="section-heading"><span class="section-icon">🎁</span><div><h2>Prize & Celebration</h2><p>Winning number and scratch completion animation</p></div></div>
+          <label for="winningNumber">Winning Number</label><input id="winningNumber" type="text" inputmode="numeric" maxlength="12" placeholder="Enter winning number" required><p class="helper-text">Enter the number customers should see after scratching, then save.</p>
+          <label class="check-row"><input id="setCelebrate" type="checkbox"> Enable celebration</label>
           <label for="setDuration">Celebration duration (ms)</label><input id="setDuration" type="number" min="0" max="5000">
         </section>
         <section class="settings-card">
-          <div class="section-heading"><span class="section-icon">💳</span><div><h2>Payment Settings</h2><p>UPI ও পেমেন্ট সংক্রান্ত তথ্য</p></div></div>
-          <label for="setUpi">UPI ID (ঐচ্ছিক)</label><input id="setUpi" placeholder="yourname@upi">
+          <div class="section-heading"><span class="section-icon">💳</span><div><h2>Payment Settings</h2><p>UPI and payment details</p></div></div>
+          <label for="setUpi">UPI ID (optional)</label><input id="setUpi" placeholder="yourname@upi">
           <label for="setUpiName">UPI display name</label><input id="setUpiName">
-          <label for="setPaymentAmount">UPI Payment Amount (₹)</label><input id="setPaymentAmount" type="number" min="0" max="100000" step="0.01" placeholder="0 = বন্ধ"><p class="helper-text">Scratch শেষ হওয়ার ৩ সেকেন্ড পরে এই পরিমাণ UPI অ্যাপে দেখাবে। 0 রাখলে বন্ধ থাকবে।</p><label for="setPayment">Payment instructions</label><textarea id="setPayment" rows="3"></textarea>
+          <label for="setPaymentAmount">UPI Payment Amount (₹)</label><input id="setPaymentAmount" type="number" min="0" max="100000" step="0.01" placeholder="0 = বন্ধ"><p class="helper-text">This amount will open in the UPI app 3 seconds after scratching. Set to 0 to disable.</p><label for="setPayment">Payment instructions</label><textarea id="setPayment" rows="3"></textarea>
         </section>
-        <button type="submit" class="save-btn">সেটিংস সেভ করুন</button>
+        <button type="submit" class="save-btn">Save Settings</button>
       </form>
-      <section class="settings-card entries-card"><div class="section-heading"><span class="section-icon">👥</span><div><h2>সর্বশেষ কাস্টমার এন্ট্রি</h2><p>সাম্প্রতিক ১০০টি এন্ট্রি</p></div></div><div id="entries"></div></section>
+      <section class="settings-card entries-card"><div class="section-heading"><span class="section-icon">👥</span><div><h2>Latest Customer Entries</h2><p>Latest 100 entries</p></div></div><div id="entries"></div></section>
     </div>
     <div id="adminStatus" class="admin-status" role="status"></div>
     <footer class="admin-footer">Scratch Win · Admin Panel</footer>
