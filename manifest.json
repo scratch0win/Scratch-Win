@@ -1,0 +1,10 @@
+{
+  "name": "Scratch Win",
+  "short_name": "Scratch Win",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#07111f",
+  "theme_color": "#102139",
+  "description": "Free Scratch Win promotional card app",
+  "icons": []
+}
