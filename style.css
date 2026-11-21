@@ -53,3 +53,12 @@ html.admin-mode body .wrap{height:auto!important;min-height:100svh;overflow:visi
 html.admin-mode body .admin-shell{height:auto!important;min-height:0;overflow:visible!important}
 html.admin-mode body #dashboard{height:auto!important;overflow:visible!important}
 html.admin-mode body .admin-form{overflow:visible!important}
+
+/* Public banner integration: match the scratch card and feel like one layout */
+body:not(.admin-mode) .wrap{display:block;min-height:100svh;padding:24px 14px 28px}
+body:not(.admin-mode) .scratch-panel{display:flex;flex-direction:column;align-items:center;gap:14px;width:100%;max-width:568px;margin:0 auto}
+body:not(.admin-mode) .scratch{width:94%;max-width:540px;margin:0 auto;border-radius:22px}
+body:not(.admin-mode) .banner-slot{display:block;width:94%;max-width:540px;aspect-ratio:16/5;height:auto;max-height:none;margin:0 auto!important;padding:0;overflow:hidden;border-radius:18px;background:#f1f3f6;line-height:0}
+body:not(.admin-mode) .banner-slot img{display:block;width:100%;height:100%;max-height:none;object-fit:cover;object-position:center;border:0;border-radius:inherit}
+body:not(.admin-mode) .status{width:94%;max-width:540px;margin:0 auto;text-align:center}
+@media(max-width:480px){body:not(.admin-mode) .wrap{padding:18px 10px 24px}body:not(.admin-mode) .scratch-panel{gap:12px}body:not(.admin-mode) .scratch{border-radius:20px}body:not(.admin-mode) .banner-slot{border-radius:16px}}
