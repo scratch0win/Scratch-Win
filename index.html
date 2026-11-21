@@ -6,7 +6,7 @@
 <title>Scratch Win</title>
 <meta name="theme-color" content="#ffffff">
 <link rel="manifest" href="/manifest.json">
-<link rel="stylesheet" href="/style.css?v=4">
+<link rel="stylesheet" href="/style.css?v=5">
 </head>
 <body>
 <main class="wrap">
@@ -15,13 +15,6 @@
       <div class="prize" id="prize">লোড হচ্ছে...</div>
       <canvas id="foil" class="hidden"></canvas>
     </div>
-    <form id="details" class="details hidden">
-      <label>আপনার নাম *</label><input id="name" required maxlength="80">
-      <label>মোবাইল নম্বর *</label><input id="phone" required inputmode="tel" maxlength="15">
-      <label>ইমেইল (ঐচ্ছিক)</label><input id="email" type="email">
-      <label><input id="consent" type="checkbox" required style="width:auto"> যোগাযোগের জন্য তথ্য ব্যবহারে সম্মতি দিচ্ছি</label>
-      <button id="submit">তথ্য জমা দিন</button>
-    </form>
     <div id="status" class="status"></div>
   </section>
   <section id="admin" class="panel hidden">
@@ -35,6 +28,6 @@
     </div><div id="adminStatus" class="status"></div>
   </section>
 </main>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="/config.js"></script><script src="/script.js?v=4"></script>
-<script>if ("serviceWorker" in navigator) { window.addEventListener("load", () => navigator.serviceWorker.register("/service-worker.js?v=4").catch(console.error)); }</script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="/config.js"></script><script src="/script.js?v=5"></script>
+<script>if ("serviceWorker" in navigator) { window.addEventListener("load", () => navigator.serviceWorker.register("/service-worker.js?v=5").catch(console.error)); }</script>
 </body></html>
