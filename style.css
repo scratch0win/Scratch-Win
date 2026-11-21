@@ -11,3 +11,6 @@
 
 /* Prevent page movement during scratch gestures */
 .scratch,.scratch canvas{touch-action:none;overscroll-behavior:contain}
+
+/* Keep the public scratch page fixed: no scrolling outside the card either */
+html,body{height:100%;overflow:hidden;overscroll-behavior:none}
