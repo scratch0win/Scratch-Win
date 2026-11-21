@@ -4,3 +4,7 @@
 
 /* Slightly narrower card, centered on mobile */
 .scratch{width:90%;max-width:520px;margin-left:auto;margin-right:auto}
+
+/* Center the scratch card in the mobile viewport */
+.wrap{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:center;align-items:center;padding-top:16px;padding-bottom:16px}
+.scratch-panel{width:100%}
