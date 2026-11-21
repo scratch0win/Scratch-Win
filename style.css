@@ -118,3 +118,11 @@ body:not(.admin-mode) #bottomBanner{order:4;margin-top:0!important}
 html:not(.admin-mode){background-color:#fff!important;background-image:var(--site-background-image,none)!important;background-size:cover!important;background-position:center center!important;background-repeat:no-repeat!important;background-attachment:fixed!important}
 body:not(.admin-mode){background:transparent!important}
 body:not(.admin-mode) .scratch-panel{background:transparent!important}
+
+/* Exact centered placement for the public scratch card */
+body:not(.admin-mode) .scratch-panel{display:grid!important;grid-template-columns:minmax(0,1fr)!important;grid-template-rows:auto auto minmax(250px,1fr) auto auto!important;align-items:center!important;justify-items:center!important;min-height:100svh!important}
+body:not(.admin-mode) .brand-logo{grid-row:1!important;justify-self:center!important}
+body:not(.admin-mode) #topBanner{grid-row:2!important}
+body:not(.admin-mode) #scratch{grid-row:3!important;align-self:center!important;justify-self:center!important;margin:18px auto!important;left:auto!important;transform:none!important}
+body:not(.admin-mode) #status{grid-row:4!important;justify-self:center!important}
+body:not(.admin-mode) #bottomBanner{grid-row:5!important;align-self:end!important}
