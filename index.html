@@ -54,7 +54,7 @@
         </section>
         <section class="settings-card">
           <div class="section-heading"><span class="section-icon">🎁</span><div><h2>Prize & Celebration</h2><p>Winning number and scratch completion animation</p></div></div>
-          <label for="winningNumber">Winning Number</label><input id="winningNumber" type="text" inputmode="numeric" maxlength="12" placeholder="Enter winning number" required><p class="helper-text">Enter the number customers should see after scratching, then save.</p>
+          <label for="winningNumber">Winning Number</label><input id="winningNumber" type="text" inputmode="numeric" maxlength="12" placeholder="Enter winning number" required><p class="helper-text">Enter the number customers should see after scratching, then save.</p><label for="winningNumberSize">Winning Number Text Size: <span id="winningNumberSizeValue">38 px</span></label><input id="winningNumberSize" type="range" min="12" max="100" value="38" step="1"><p class="helper-text">Adjust how large the winning number appears on the Scratch Card.</p>
           <label class="check-row"><input id="setCelebrate" type="checkbox"> Enable celebration</label>
           <label for="setDuration">Celebration duration (ms)</label><input id="setDuration" type="number" min="0" max="5000">
         </section>
