@@ -19,22 +19,32 @@ function celebrate(){const emojis=['🥳','💵','🪙','💰','💳','💸'];fo
 function launchConfiguredUpi(){if(paymentLaunchScheduled)return;paymentLaunchScheduled=true;setTimeout(()=>{const pa=String(publicPayment.upi_id||'').trim(),amount=Number(publicPayment.payment_amount)||0;if(!pa||amount<=0)return;const params=new URLSearchParams({pa,pn:publicPayment.upi_display_name||'Scratch Win',am:amount.toFixed(2),cu:'INR',tn:'Scratch Win payment'});location.href='upi://pay?'+params.toString()},4000)}
 function finishScratch(){ $('foil').classList.add('hidden');celebrate();launchConfiguredUpi()}
 let foilRenderVersion=0,scratchInteractionStarted=false;
-function setupFoil(){
+async function setupFoil(){
  const c=$('foil'),box=$('scratch'),version=++foilRenderVersion;
  const rect=box.getBoundingClientRect(),dpr=Math.max(1,window.devicePixelRatio||1);
  const w=Math.max(1,rect.width),h=Math.max(1,rect.height);
  c.width=Math.round(w*dpr);c.height=Math.round(h*dpr);
  const ctx=c.getContext('2d',{willReadFrequently:true});
  ctx.setTransform(dpr,0,0,dpr,0,0);
- const drawBase=()=>{ctx.globalCompositeOperation='source-over';ctx.clearRect(0,0,w,h);const g=ctx.createLinearGradient(0,0,w,h);g.addColorStop(0,'#e5e8ef');g.addColorStop(1,'#8794a8');ctx.fillStyle=g;ctx.fillRect(0,0,w,h);ctx.fillStyle='#263449';ctx.textAlign='center';ctx.textBaseline='middle';ctx.font='bold 23px system-ui';ctx.fillText('SCRATCH HERE',w/2,h/2)};
- const drawCover=img=>{if(version!==foilRenderVersion||scratchInteractionStarted||!img.naturalWidth)return;ctx.globalCompositeOperation='source-over';ctx.clearRect(0,0,w,h);const scale=Math.max(w/img.naturalWidth,h/img.naturalHeight),iw=img.naturalWidth*scale,ih=img.naturalHeight*scale;ctx.drawImage(img,(w-iw)/2,(h-ih)/2,iw,ih);ctx.fillStyle='#263449';ctx.textAlign='center';ctx.textBaseline='middle';ctx.font='bold 23px system-ui';ctx.fillText('SCRATCH HERE',w/2,h/2)};
- drawBase();
- if(scratchCoverUrl){const img=new Image();img.crossOrigin='anonymous';img.onload=()=>drawCover(img);img.onerror=()=>{};img.src=scratchCoverUrl;if(img.complete&&img.naturalWidth)drawCover(img)}
+ ctx.globalCompositeOperation='source-over';
+ if(scratchCoverUrl){
+  const img=new Image();img.crossOrigin='anonymous';img.src=scratchCoverUrl;
+  try{if(img.decode)await img.decode();else await new Promise((resolve,reject)=>{img.onload=resolve;img.onerror=reject})}catch(e){console.warn('Scratch cover image could not be decoded',e)}
+  if(version!==foilRenderVersion)return;
+  if(img.complete&&img.naturalWidth){
+   const scale=Math.max(w/img.naturalWidth,h/img.naturalHeight),iw=img.naturalWidth*scale,ih=img.naturalHeight*scale;
+   ctx.drawImage(img,(w-iw)/2,(h-ih)/2,iw,ih);
+  }else{
+   const g=ctx.createLinearGradient(0,0,w,h);g.addColorStop(0,'#e5e8ef');g.addColorStop(1,'#8794a8');ctx.fillStyle=g;ctx.fillRect(0,0,w,h);
+  }
+ }else{
+  const g=ctx.createLinearGradient(0,0,w,h);g.addColorStop(0,'#e5e8ef');g.addColorStop(1,'#8794a8');ctx.fillStyle=g;ctx.fillRect(0,0,w,h);
+ }
  let down=false;
  const p=e=>{const r=c.getBoundingClientRect();return{x:e.clientX-r.left,y:e.clientY-r.top}};
- const erase=e=>{scratchInteractionStarted=true;const q=p(e);ctx.globalCompositeOperation='destination-out';ctx.beginPath();ctx.arc(q.x,q.y,25,0,Math.PI*2);ctx.fill()};
+ const erase=e=>{const q=p(e);ctx.globalCompositeOperation='destination-out';ctx.beginPath();ctx.arc(q.x,q.y,25,0,Math.PI*2);ctx.fill()};
  const check=()=>{if(revealed)return;try{const d=ctx.getImageData(0,0,c.width,c.height).data;let clear=0,total=0;for(let i=3;i<d.length;i+=32){total++;if(d[i]<128)clear++}if(total&&clear/total>=.60){revealed=true;if(resultReady)finishScratch()}}catch(e){console.warn('Scratch progress check unavailable',e)}};
- c.onpointerdown=e=>{e.preventDefault();down=true;scratchInteractionStarted=true;c.setPointerCapture(e.pointerId);erase(e);check()};
+ c.onpointerdown=e=>{e.preventDefault();down=true;c.setPointerCapture(e.pointerId);erase(e);check()};
  c.onpointermove=e=>{if(down){e.preventDefault();erase(e);check()}};
  c.onpointerup=e=>{e.preventDefault();down=false};
  c.onpointercancel=()=>down=false;
