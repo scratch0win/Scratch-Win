@@ -21,6 +21,7 @@ function finishScratch(){ $('foil').classList.add('hidden');celebrate();launchCo
 let foilRenderVersion=0,scratchInteractionStarted=false;
 async function setupFoil(){
  const c=$('foil'),box=$('scratch'),version=++foilRenderVersion;
+ c.style.backgroundImage='none';
  const rect=box.getBoundingClientRect(),dpr=Math.max(1,window.devicePixelRatio||1);
  const w=Math.max(1,rect.width),h=Math.max(1,rect.height);
  c.width=Math.round(w*dpr);c.height=Math.round(h*dpr);
