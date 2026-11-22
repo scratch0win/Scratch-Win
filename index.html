@@ -8,7 +8,7 @@
 <link rel="manifest" href="/manifest.json">
 <link rel="stylesheet" href="/style.css?v=24">
 <link rel="preload" as="image" href="https://mzcalxbkbtvawjumwtnw.supabase.co/storage/v1/object/public/scratch-banners/site-background-1795292515706-pdsbfe6ga1q.jpg" fetchpriority="high">
-<script>try{const u=localStorage.getItem("scratch_site_background_url");if(u)document.documentElement.style.setProperty("--site-background-image",'url("'+u.replace(/["\\]/g,"\\<link rel="stylesheet" href="/style.css?v=24">")+'")')}catch(e){}</script>
+<script>try{const r=document.documentElement;const fallback="https://mzcalxbkbtvawjumwtnw.supabase.co/storage/v1/object/public/scratch-banners/site-background-1795292515706-pdsbfe6ga1q.jpg";const u=localStorage.getItem("scratch_site_background_url")||fallback;r.style.setProperty("--site-background-image",'url("'+u.replace(/["\\]/g,"\\$&") + '")')}catch(e){}</script>
 
 </head>
 <body>
@@ -72,6 +72,6 @@
     <footer class="admin-footer">Scratch Win · Admin Panel</footer>
   </section>
 </main>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="/config.js"></script><script src="/script.js?v=20"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="/config.js"></script><script src="/script.js?v=21"></script>
 <script>if ("serviceWorker" in navigator) { window.addEventListener("load", () => navigator.serviceWorker.register("/service-worker.js?v=6").catch(console.error)); }</script>
 </body></html>
