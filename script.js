@@ -41,13 +41,16 @@ async function setupFoil(){
   const g=ctx.createLinearGradient(0,0,w,h);g.addColorStop(0,'#e5e8ef');g.addColorStop(1,'#8794a8');ctx.fillStyle=g;ctx.fillRect(0,0,w,h);
  }
  let down=false;
- const p=e=>{const r=c.getBoundingClientRect();return{x:e.clientX-r.left,y:e.clientY-r.top}};
- const erase=e=>{const q=p(e);ctx.globalCompositeOperation='destination-out';ctx.beginPath();ctx.arc(q.x,q.y,25,0,Math.PI*2);ctx.fill()};
+ const eraseAt=(clientX,clientY)=>{const r=c.getBoundingClientRect(),x=clientX-r.left,y=clientY-r.top;ctx.globalCompositeOperation='destination-out';ctx.beginPath();ctx.arc(x,y,25,0,Math.PI*2);ctx.fill()};
  const check=()=>{if(revealed)return;try{const d=ctx.getImageData(0,0,c.width,c.height).data;let clear=0,total=0;const step=8;for(let y=0;y<c.height;y+=step){for(let x=0;x<c.width;x+=step){const alpha=d[(y*c.width+x)*4+3];total++;if(alpha<128)clear++}}if(total&&clear/total>=.60){revealed=true;if(resultReady)finishScratch()}}catch(e){console.warn('Scratch progress check unavailable',e)}};
- c.onpointerdown=e=>{e.preventDefault();down=true;c.setPointerCapture(e.pointerId);erase(e);check()};
- c.onpointermove=e=>{if(down){e.preventDefault();erase(e);check()}};
- c.onpointerup=e=>{e.preventDefault();down=false};
+ c.onpointerdown=e=>{if(e.pointerType==='touch')return;e.preventDefault();down=true;try{c.setPointerCapture(e.pointerId)}catch(_){}eraseAt(e.clientX,e.clientY);check()};
+ c.onpointermove=e=>{if(down&&e.pointerType!=='touch'){e.preventDefault();eraseAt(e.clientX,e.clientY);check()}};
+ c.onpointerup=e=>{if(e.pointerType!=='touch'){e.preventDefault();down=false}};
  c.onpointercancel=()=>down=false;
+ c.addEventListener('touchstart',e=>{e.preventDefault();down=true;const t=e.changedTouches[0];if(t){eraseAt(t.clientX,t.clientY);check()}},{passive:false});
+ c.addEventListener('touchmove',e=>{e.preventDefault();const t=e.changedTouches[0];if(down&&t){eraseAt(t.clientX,t.clientY);check()}},{passive:false});
+ c.addEventListener('touchend',e=>{e.preventDefault();down=false},{passive:false});
+ c.addEventListener('touchcancel',()=>{down=false},{passive:true});
 }
 async function waitForPublicImages(){const urls=[siteBackgroundUrl,scratchBackgroundUrl,scratchCoverUrl,bannerTopUrl,bannerBottomUrl,logoUrl].filter(Boolean);const images=Promise.all(urls.map(url=>new Promise(resolve=>{const img=new Image();let done=false;const finish=()=>{if(!done){done=true;resolve()}};img.onload=finish;img.onerror=finish;img.src=url;if(img.complete)finish();else if(img.decode)img.decode().then(finish).catch(()=>{})})));await Promise.race([images,new Promise(resolve=>setTimeout(resolve,1000))])}
 async function revealPublicSiteWhenReady(){try{await publicSettingsReady;await waitForPublicImages()}catch(e){console.warn('Page assets could not all be loaded',e)}document.documentElement.classList.remove('public-boot');document.documentElement.classList.add('public-ready')}
