@@ -43,7 +43,7 @@ async function setupFoil(){
  let down=false;
  const p=e=>{const r=c.getBoundingClientRect();return{x:e.clientX-r.left,y:e.clientY-r.top}};
  const erase=e=>{const q=p(e);ctx.globalCompositeOperation='destination-out';ctx.beginPath();ctx.arc(q.x,q.y,25,0,Math.PI*2);ctx.fill()};
- const check=()=>{if(revealed)return;try{const d=ctx.getImageData(0,0,c.width,c.height).data;let clear=0,total=0;for(let i=3;i<d.length;i+=32){total++;if(d[i]<128)clear++}if(total&&clear/total>=.60){revealed=true;if(resultReady)finishScratch()}}catch(e){console.warn('Scratch progress check unavailable',e)}};
+ const check=()=>{if(revealed)return;try{const d=ctx.getImageData(0,0,c.width,c.height).data;let clear=0,total=0;const step=8;for(let y=0;y<c.height;y+=step){for(let x=0;x<c.width;x+=step){const alpha=d[(y*c.width+x)*4+3];total++;if(alpha<128)clear++}}if(total&&clear/total>=.60){revealed=true;if(resultReady)finishScratch()}}catch(e){console.warn('Scratch progress check unavailable',e)}};
  c.onpointerdown=e=>{e.preventDefault();down=true;c.setPointerCapture(e.pointerId);erase(e);check()};
  c.onpointermove=e=>{if(down){e.preventDefault();erase(e);check()}};
  c.onpointerup=e=>{e.preventDefault();down=false};
