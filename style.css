@@ -131,3 +131,6 @@ body:not(.admin-mode) #bottomBanner{grid-row:5!important;align-self:end!importan
 body:not(.admin-mode) #scratch{transform:translateY(-80px)!important}
 
 
+
+/* Show the cached uploaded scratch cover immediately, then hand it to the canvas */
+body:not(.admin-mode) #scratch{background-image:var(--scratch-cover-first-paint,none)!important;background-size:cover!important;background-position:center!important;background-repeat:no-repeat!important}
