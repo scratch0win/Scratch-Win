@@ -8,7 +8,7 @@
 <link rel="manifest" href="/manifest.json">
 <link rel="stylesheet" href="/style.css?v=26">
 <link rel="preload" as="image" href="https://mzcalxbkbtvawjumwtnw.supabase.co/storage/v1/object/public/scratch-banners/site-background-1795292515706-pdsbfe6ga1q.jpg" fetchpriority="high">
-<script>try{const r=document.documentElement;const fallback="https://mzcalxbkbtvawjumwtnw.supabase.co/storage/v1/object/public/scratch-banners/site-background-1795292515706-pdsbfe6ga1q.jpg";const u=localStorage.getItem("scratch_site_background_url")||fallback;r.style.setProperty("--site-background-image",'url("'+u.replace(/["\\]/g,"\\$&") + '")')}catch(e){}</script>
+<script>try{const r=document.documentElement;const keys=["site_background","scratch_background","scratch_cover","logo","banner_top","banner_bottom"];const urls={};for(const k of keys){urls[k]=localStorage.getItem("scratch_asset_"+k)||"";if(urls[k]){const l=document.createElement("link");l.rel="preload";l.as="image";l.href=urls[k];l.fetchPriority="high";document.head.appendChild(l)}}const fallback="https://mzcalxbkbtvawjumwtnw.supabase.co/storage/v1/object/public/scratch-banners/site-background-1795292515706-pdsbfe6ga1q.jpg";const site=urls.site_background||localStorage.getItem("scratch_site_background_url")||fallback;r.style.setProperty("--site-background-image",'url("'+site.replace(/["\\]/g,"\\<script>try{const r=document.documentElement;const fallback="https://mzcalxbkbtvawjumwtnw.supabase.co/storage/v1/object/public/scratch-banners/site-background-1795292515706-pdsbfe6ga1q.jpg";const u=localStorage.getItem("scratch_site_background_url")||fallback;r.style.setProperty("--site-background-image",'url("'+u.replace(/["\\]/g,"\\$&") + '")')}catch(e){}</script>")+'")')}catch(e){}</script>
 
 </head>
 <body>
@@ -72,6 +72,6 @@
     <footer class="admin-footer">Scratch Win · Admin Panel</footer>
   </section>
 </main>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="/config.js"></script><script src="/script.js?v=36"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="/config.js"></script><script src="/script.js?v=37"></script>
 <script>if ("serviceWorker" in navigator) { window.addEventListener("load", () => navigator.serviceWorker.register("/service-worker.js?v=6").catch(console.error)); }</script>
 </body></html>
