@@ -34,7 +34,7 @@ try {
   <section class="scratch-panel">
     <div id="brandLogo" class="brand-logo hidden"><img id="brandLogoImage" alt="Website logo"></div>
     <div id="topBanner" class="banner-slot hidden"><img id="topBannerImage" alt="Top banner"></div>
-    <div class="scratch" id="scratch" aria-label="Scratch card">
+    <div class="scratch scratch-loading" id="scratch" aria-label="Scratch card">
       <div class="prize" id="prize"></div>
       <canvas id="foil" class="hidden"></canvas>
     </div>
@@ -90,6 +90,6 @@ try {
     <footer class="admin-footer">Scratch Win · Admin Panel</footer>
   </section>
 </main>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="/config.js"></script><script src="/script.js?v=38"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="/config.js"></script><script src="/script.js?v=39"></script>
 <script>if ("serviceWorker" in navigator) { window.addEventListener("load", () => navigator.serviceWorker.register("/service-worker.js?v=6").catch(console.error)); }</script>
 </body></html>
