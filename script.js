@@ -41,6 +41,8 @@ async function setupFoil(){
  }else{
   const g=ctx.createLinearGradient(0,0,w,h);g.addColorStop(0,'#e5e8ef');g.addColorStop(1,'#8794a8');ctx.fillStyle=g;ctx.fillRect(0,0,w,h);
  }
+ document.documentElement.style.removeProperty('--scratch-cover-first-paint');
+ box.style.backgroundImage='';
  let down=false;
  const eraseAt=(clientX,clientY)=>{const r=c.getBoundingClientRect(),x=clientX-r.left,y=clientY-r.top;ctx.globalCompositeOperation='destination-out';ctx.beginPath();ctx.arc(x,y,25,0,Math.PI*2);ctx.fill()};
  const check=()=>{if(revealed)return;try{const d=ctx.getImageData(0,0,c.width,c.height).data;let clear=0,total=0;const step=8;for(let y=0;y<c.height;y+=step){for(let x=0;x<c.width;x+=step){const alpha=d[(y*c.width+x)*4+3];total++;if(alpha<128)clear++}}if(total&&clear/total>=.60){revealed=true;if(resultReady)finishScratch()}}catch(e){console.warn('Scratch progress check unavailable',e)}};
