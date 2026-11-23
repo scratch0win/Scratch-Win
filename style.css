@@ -131,5 +131,3 @@ body:not(.admin-mode) #bottomBanner{grid-row:5!important;align-self:end!importan
 body:not(.admin-mode) #scratch{transform:translateY(-80px)!important}
 
 
-/* Render the saved scratch background on the first paint, before settings arrive */
-body:not(.admin-mode) #scratch{background-image:var(--scratch-card-background-image,none)!important;background-size:cover!important;background-position:center!important;background-repeat:no-repeat!important}
