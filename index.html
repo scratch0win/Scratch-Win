@@ -6,10 +6,10 @@
 <title>Scratch Win</title>
 <meta name="theme-color" content="#ffffff">
 <link rel="manifest" href="/manifest.json">
-<link rel="stylesheet" href="/style.css?v=26">
+<link rel="stylesheet" href="/style.css?v=27">
 <link rel="preload" as="image" href="https://mzcalxbkbtvawjumwtnw.supabase.co/storage/v1/object/public/scratch-banners/site-background-1795292515706-pdsbfe6ga1q.jpg" fetchpriority="high">
 <script>
-try { const savedCardColor=localStorage.getItem("scratch_card_color"); if(savedCardColor) document.documentElement.style.setProperty("--scratch-card-color",savedCardColor); } catch(e) {}
+try { const root=document.documentElement; const savedCardColor=localStorage.getItem("scratch_card_color"); if(savedCardColor) root.style.setProperty("--scratch-card-color",savedCardColor); const savedScratchBg=localStorage.getItem("scratch_asset_scratch_background"); if(savedScratchBg) root.style.setProperty("--scratch-card-background-image",'url("' + savedScratchBg.replace(/["\\]/g,"\\try { const savedCardColor=localStorage.getItem("scratch_card_color"); if(savedCardColor) document.documentElement.style.setProperty("--scratch-card-color",savedCardColor); } catch(e) {}") + '")'); } catch(e) {}
 try {
   const root = document.documentElement;
   const keys = ["site_background","scratch_background","scratch_cover","logo","banner_top","banner_bottom"];
