@@ -130,5 +130,3 @@ body:not(.admin-mode) #bottomBanner{grid-row:5!important;align-self:end!importan
 /* Move the scratch card slightly upward while keeping it centered */
 body:not(.admin-mode) #scratch{transform:translateY(-80px)!important}
 
-/* Keep the scratch card hidden until its cover canvas is fully painted */
-body:not(.admin-mode) #scratch.scratch-loading{visibility:hidden!important}
