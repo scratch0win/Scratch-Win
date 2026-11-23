@@ -9,7 +9,6 @@
 <link rel="stylesheet" href="/style.css?v=27">
 <link rel="preload" as="image" href="https://mzcalxbkbtvawjumwtnw.supabase.co/storage/v1/object/public/scratch-banners/site-background-1795292515706-pdsbfe6ga1q.jpg" fetchpriority="high">
 <script>
-try { const root=document.documentElement; const savedCardColor=localStorage.getItem("scratch_card_color"); if(savedCardColor) root.style.setProperty("--scratch-card-color",savedCardColor); const savedScratchBg=localStorage.getItem("scratch_asset_scratch_background"); if(savedScratchBg) root.style.setProperty("--scratch-card-background-image",'url("' + savedScratchBg.replace(/["\\]/g,"\\try { const savedCardColor=localStorage.getItem("scratch_card_color"); if(savedCardColor) document.documentElement.style.setProperty("--scratch-card-color",savedCardColor); } catch(e) {}") + '")'); } catch(e) {}
 try {
   const root = document.documentElement;
   const keys = ["site_background","scratch_background","scratch_cover","logo","banner_top","banner_bottom"];
@@ -22,8 +21,13 @@ try {
       link.href = url;
       link.fetchPriority = "high";
       document.head.appendChild(link);
+      if (key === "scratch_cover") {
+        root.style.setProperty("--scratch-cover-first-paint", 'url("' + url.replace(/["\\]/g, "\\$&") + '")');
+      }
     }
   }
+  const savedCardColor = localStorage.getItem("scratch_card_color");
+  if (savedCardColor) root.style.setProperty("--scratch-card-color", savedCardColor);
   const fallback = "https://mzcalxbkbtvawjumwtnw.supabase.co/storage/v1/object/public/scratch-banners/site-background-1795292515706-pdsbfe6ga1q.jpg";
   const site = localStorage.getItem("scratch_asset_site_background") || localStorage.getItem("scratch_site_background_url") || fallback;
   root.style.setProperty("--site-background-image", 'url("' + site.replace(/["\\]/g, "\\$&") + '")');
@@ -91,6 +95,6 @@ try {
     <footer class="admin-footer">Scratch Win · Admin Panel</footer>
   </section>
 </main>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="/config.js"></script><script src="/script.js?v=40"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="/config.js"></script><script src="/script.js?v=41"></script>
 <script>if ("serviceWorker" in navigator) { window.addEventListener("load", () => navigator.serviceWorker.register("/service-worker.js?v=6").catch(console.error)); }</script>
 </body></html>
