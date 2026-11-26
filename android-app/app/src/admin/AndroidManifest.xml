@@ -1,1 +1,1 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"><application android:icon="@drawable/admin_launcher" android:roundIcon="@drawable/admin_launcher"/></manifest>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"><application android:icon="@drawable/admin_launcher" android:roundIcon="@drawable/admin_launcher" tools:replace="android:icon,android:roundIcon"/></manifest>
