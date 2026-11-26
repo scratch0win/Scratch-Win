@@ -1,4 +1,4 @@
-name: Build Scratch Win Android APK
+name: Build Scratch Win User and Admin APKs
 
 on:
   workflow_dispatch:
@@ -35,15 +35,22 @@ jobs:
         uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: '8.9'
-      - name: Build debug APK
+      - name: Build separate User and Admin APKs
         working-directory: android-app
-        run: gradle --no-daemon assembleDebug
-      - name: Publish installable APK
+        run: gradle --no-daemon assembleUserDebug assembleAdminDebug
+      - name: Prepare APK files
+        run: |
+          mkdir -p release-apks
+          cp android-app/app/build/outputs/apk/user/debug/app-user-debug.apk release-apks/Scratch-Win-User.apk
+          cp android-app/app/build/outputs/apk/admin/debug/app-admin-debug.apk release-apks/Scratch-Win-Admin.apk
+      - name: Publish separate APK downloads
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: scratch-win-android-v1.0
-          name: Scratch Win Android v1.0
-          files: android-app/app/build/outputs/apk/debug/app-debug.apk
+          tag_name: scratch-win-android-v1.1
+          name: Scratch Win Android v1.1 - User and Admin
+          files: |
+            release-apks/Scratch-Win-User.apk
+            release-apks/Scratch-Win-Admin.apk
           make_latest: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

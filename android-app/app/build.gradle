@@ -4,11 +4,29 @@ plugins {
 android {
     namespace 'com.scratchwin.app'
     compileSdk 35
+    buildFeatures {
+        buildConfig true
+    }
     defaultConfig {
         applicationId 'com.scratchwin.app'
         minSdk 23
         targetSdk 34
-        versionCode 1
-        versionName '1.0'
+        versionCode 2
+        versionName '1.1'
+    }
+    flavorDimensions += 'edition'
+    productFlavors {
+        user {
+            dimension 'edition'
+            resValue 'string', 'app_name', 'Scratch Win User'
+            buildConfigField 'String', 'HOME_URL', '"https://scratch-win-d3q.pages.dev/"'
+        }
+        admin {
+            dimension 'edition'
+            applicationIdSuffix '.admin'
+            versionNameSuffix '-admin'
+            resValue 'string', 'app_name', 'Scratch Win Admin'
+            buildConfigField 'String', 'HOME_URL', '"https://scratch-win-d3q.pages.dev/?admin=1"'
+        }
     }
 }

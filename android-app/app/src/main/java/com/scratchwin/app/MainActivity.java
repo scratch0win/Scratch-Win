@@ -16,7 +16,7 @@ import android.webkit.WebViewClient;
 import android.widget.Toast;
 
 public class MainActivity extends Activity {
-    private static final String HOME = "https://scratch-win-d3q.pages.dev/";
+    private static final String HOME = BuildConfig.HOME_URL;
     private WebView webView;
 
     @Override
